@@ -1,25 +1,10 @@
-from fastapi import FastAPI, Request
-from pydantic import BaseModel, Field
-from ml.house_price_regressor import HousePriceRegressor
-from .utils import convert_data_to_array
-from config import PRICE_PRED_MODEL
-
 import os
 import logging
-
-
-# models
-class Features(BaseModel):
-    transaction_date: float
-    house_age: float = Field(ge=0)
-    dist_to_nearest_mrt_station: float = Field(ge=0)
-    num_of_convenience_store: int = Field(ge=0)
-    latitude: float = Field(ge=-90, le=90)
-    longitude: float = Field(ge=-180, le=180)
-
-
-class Prediction(BaseModel):
-    price: float
+from fastapi import FastAPI
+from .models import Features, Prediction
+from .utils import convert_data_to_array
+from ml.house_price_regressor import HousePriceRegressor
+from config import PRICE_PRED_MODEL
 
 
 app = FastAPI()
