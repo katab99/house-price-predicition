@@ -1,0 +1,12 @@
+services:
+  api:
+    build: .
+    container_name: house-price-predictor
+    environment:
+      LOG_LEVEL: DEBUG
+      MODELS_DIR: /mnt/models
+    ports:
+      - "8080:80"
+    restart: "unless-stopped"
+    volumes:
+      - ./data/models:/mnt/models
