@@ -34,6 +34,13 @@ The Docker image does not contain anything from folders `/data` and `/tests`. Th
 
 ## Development
 
+### Requirements
+
+- Python 3.14
+- Docker
+
+### Installment and Running
+
 1. Clone the repository and install dependencies.
 
 ```
